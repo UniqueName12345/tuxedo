@@ -6,7 +6,7 @@ if not os.path.exists('suit-cache.json'):
     print("It appears that the cache file (suit-cache.json) doesn't exist. To prevent crashing, a new one will be generated. \n")
     with open('suit-cache.json', 'w') as cachefile:
         cachefile.write(json.dumps({
-            'pppdud': 'is the best' }))
+            'TuxedoVersion': 'v0.0.1' }))
     print('Cache file regenerated. \n')
 print('Loading cache..')
 cachefile = open('suit-cache.json', 'r')
