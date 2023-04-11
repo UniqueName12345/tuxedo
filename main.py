@@ -1,10 +1,7 @@
-# Source Generated with Decompyle++
-# File: SUIT.pyc (Python 3.10)
-
 import os
 import json
 import requests
-print('SUIT Client v1.0 (CC0 software): A way to use SUI without the trouble!')
+print('Tuxedo (CC0 software): A way to use SUI without the trouble!')
 if not os.path.exists('suit-cache.json'):
     print("It appears that the cache file (suit-cache.json) doesn't exist. To prevent crashing, a new one will be generated. \n")
     cachefile = open('suit-cache.json', 'w')
