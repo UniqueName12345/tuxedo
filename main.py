@@ -1,17 +1,32 @@
 import os
 import json
 import requests
+
+
 print('Tuxedo (CC0 software): A way to use SUI without the trouble!')
+
+
 if not os.path.exists('suit-cache.json'):
-    print("It appears that the cache file (suit-cache.json) doesn't exist. To prevent crashing, a new one will be generated. \n")
-    with open('suit-cache.json', 'w') as cachefile:
-        cachefile.write(json.dumps({
-            'TuxedoVersion': 'v0.0.1' }))
-    print('Cache file regenerated. \n')
-print('Loading cache..')
-cachefile = open('suit-cache.json', 'r')
-print('Extracting JSON data..')
-cachefile = json.loads(cachefile.read())
+    try:
+        with open('suit-cache.json', 'w') as cachefile:
+            cachefile.write(json.dumps({
+                'TuxedoVersion': 'v0.0.1'
+            }))
+            print('Cache file regenerated. \n')
+    except Exception as e:
+        print("An error occurred while attempting to generate the cache file: {}".format(e))
+
+
+if os.path.exists('suit-cache.json'):
+    cachefile = open('suit-cache.json', 'r')
+    print('Extracting JSON data..')
+    try:
+        cachefile = json.loads(cachefile.read())
+    except ValueError as e:
+        print('Error parsing JSON data: {}'.format(e))
+    finally:
+        cachefile.close()
+
 username = input('Please type in a username or ID here: ')
 with open('suit-cache.json', 'w') as cache_file_data:
     try:
